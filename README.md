@@ -5,8 +5,9 @@ Ziel dieses SDS-Projekts ist die Analyse des Datensatzes **Züri wie neu** von O
 
 ## Daten Quellen
 - Zürich wie neu: https://data.stadt-zuerich.ch/dataset/geo_zueri_wie_neu
-- Geodaten (Quartiere der Stadt Zürich): https://data.stadt-zuerich.ch/dataset/geo_statistische_quartiere
+- Quartiere: https://data.stadt-zuerich.ch/dataset/geo_statistische_quartiere
 - Seen: https://data.stadt-zuerich.ch/dataset/ktzh_av_gewaesser__ogd_
+- Abfallgefässe: https://data.stadt-zuerich.ch/dataset/geo_abfallgefaesse 
 
 ## Setup
 Setup Instructions: Exactly what software and libraries are required to run the code (e.g., pointing to an environment.yml or requirements.txt file).
