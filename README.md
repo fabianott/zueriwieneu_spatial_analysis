@@ -27,12 +27,12 @@ To run the project, the following software is required:
 
 All required packages are defined in the `environment.yml` file.
 
-Create the environment:
+- Create the environment:
 
 ```bash
 conda env create -f environment.yml
 ```
-Activate the environment: 
+- Activate the environment: 
 ```bash
 conda activate sds210_project_env
 ````
