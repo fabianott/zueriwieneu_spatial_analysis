@@ -2,16 +2,15 @@ name: sds210_project_env
 
 channels:
   - conda-forge
-
+  
 dependencies:
   - python=3.12
-  - esda
   - geopandas
   - pandas
   - numpy
   - matplotlib
-  - libpysal
   - seaborn
+  - esda
+  - libpysal
   - scipy
-  - ipywidgets
-  - jupyter
+  - jupyterlab
