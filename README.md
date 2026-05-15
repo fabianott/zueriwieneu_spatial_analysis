@@ -12,7 +12,7 @@ related to the frequency of waste-related reports across districts.
 
 ## Project Structure
 
-```
+```bash
 ├── data/
 │   ├── raw/                   # Original downloaded datasets
 │   └── processed/             # Cleaned and preprocessed data
