@@ -15,7 +15,8 @@ def plot_choropleth(
     filter_column=None,   
     filter_value=None
 ):
-    
+    """Aggregates points to district density and plots a choropleth map. Returns the aggregated GeoDataFrame."""
+
     # Optinal Filter
     gdf = points_gdf.copy()
     if filter_column and filter_value:
@@ -53,4 +54,4 @@ def plot_choropleth(
     plt.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.show()
 
-    return result  
+    return result  # later used for further analysis

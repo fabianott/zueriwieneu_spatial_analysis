@@ -10,6 +10,8 @@ def plot_bar(
     color="skyblue",
     sort_index=False,  
 ):
+    """Plots a bar chart from a pandas Series"""
+
     fig, ax = plt.subplots(figsize=figsize)
     
     if sort_index:

@@ -11,6 +11,8 @@ def plot_point_distribution(
     alpha=0.4,
     figsize=(6, 6),
 ):
+    """Plots the raw point distribution of a GeoDataFrame overlaid on district boundaries."""
+    
     fig, ax = plt.subplots(figsize=figsize)
 
     district_gdf.plot(ax=ax, color="whitesmoke", linewidth=0.5, zorder=1)
