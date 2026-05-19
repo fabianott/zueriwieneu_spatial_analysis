@@ -13,7 +13,8 @@ def plot_choropleth(
     vmax=None,
     figsize=(7, 6),
     filter_column=None,   
-    filter_value=None):
+    filter_value=None
+):
     
     # Optinal Filter
     gdf = points_gdf.copy()
