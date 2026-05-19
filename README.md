@@ -17,6 +17,7 @@ related to the frequency of waste-related reports across districts.
 │   ├── raw/                   # Original downloaded datasets
 │   └── processed/             # Cleaned and preprocessed data
 ├── notebooks/
+│   ├── src                    # Functions for visualisations
 │   ├── data_cleaning.ipynb    # Data preprocessing
 │   └── spatial_analysis.ipynb # Main analysis
 ├── outputs/                   # Generated maps and figures
@@ -62,3 +63,6 @@ Run the notebooks in the following order:
     reprojects CRS, and exports processed files to `data/processed/`
 2. `spatial_analysis.ipynb`: performs all spatial, temporal, 
     and statistical analyses and saves outputs to `outputs/`
+
+Helper functions used in `spatial_analysis.ipynb` are located in `notebooks/src/` 
+and are imported automatically when the notebook is executed.
