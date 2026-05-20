@@ -9,8 +9,6 @@ def plot_choropleth(
     legend_label,      
     output_path,       # e.g. "../outputs/waste_choropleth.png"
     cmap="Reds",
-    vmin=None,         # None = automatic
-    vmax=None,
     figsize=(7, 6),
     filter_column=None,   
     filter_value=None
@@ -24,7 +22,7 @@ def plot_choropleth(
    
     # Spatial Join and Aggregation per district
     joined = gpd.sjoin(gdf, district_gdf, how="inner", predicate="within") # points not being in a polygone are discarded
-    counts = joined.groupby("name").size().reset_index(name="count")
+    counts = joined.groupby("name").size().reset_index(name="count") # reset.index makes normal df and names column
 
     # 3. Merge and Normalization
     result = district_gdf.merge(counts, on="name", how="left") # points with no value are assigned with NaN
