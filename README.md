@@ -32,6 +32,7 @@ related to the frequency of waste-related reports across districts.
 - Districts: https://data.stadt-zuerich.ch/dataset/geo_statistische_quartiere
 - Lakes: https://data.stadt-zuerich.ch/dataset/ktzh_av_gewaesser__ogd_
 - Waste Containers: https://data.stadt-zuerich.ch/dataset/geo_abfallgefaesse
+- Gastronomy: https://data.stadt-zuerich.ch/dataset/geo_gastwirtschaftsbetriebe 
 
 ---
 
