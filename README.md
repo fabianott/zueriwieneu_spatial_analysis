@@ -6,7 +6,7 @@ provided by Open Data Zürich, which contains all recorded reports of damage
 to the city's urban infrastructure. The study specifically focuses on 
 identifying and evaluating spatial and temporal patterns within these reports, 
 and investigates whether the spatial distribution of waste containers is 
-related to the frequency of waste-related reports across districts.
+related to the frequency of waste-related reports across districts. 
 
 ---
 
@@ -32,11 +32,11 @@ zueriwieneu_spatial_analysis
 ---
 
 ## Data Sources
-- Reports: https://data.stadt-zuerich.ch/dataset/geo_zueri_wie_neu
-- Districts: https://data.stadt-zuerich.ch/dataset/geo_statistische_quartiere
-- Lakes: https://data.stadt-zuerich.ch/dataset/ktzh_av_gewaesser__ogd_
-- Waste Containers: https://data.stadt-zuerich.ch/dataset/geo_abfallgefaesse
-- Gastronomy: https://data.stadt-zuerich.ch/dataset/geo_gastwirtschaftsbetriebe 
+- **Reports:** Citizen-reported infrastructure issues (e.g. potholes, graffiti, waste). https://data.stadt-zuerich.ch/dataset/geo_zueri_wie_neu
+- **Districts:** Statistical district boundaries of the city of Zurich. https://data.stadt-zuerich.ch/dataset/geo_statistische_quartiere
+- **Lakes:** Water body polygons of Zurich. https://data.stadt-zuerich.ch/dataset/ktzh_av_gewaesser__ogd_
+- **Waste Containers:** Point locations of all registered public waste containers in the city of Zurich. https://data.stadt-zuerich.ch/dataset/geo_abfallgefaesse
+- **Gastronomy:** Point locations of all registered gastronomy establishments (restaurants, bars, cafes) in the city of Zurich. https://data.stadt-zuerich.ch/dataset/geo_gastwirtschaftsbetriebe 
 
 ---
 
@@ -55,7 +55,7 @@ conda env create -f environment.yml
 
 ```bash
 # Activate the environment
-conda activate sds210_project_env
+conda activate zueriwieneu_env
 ```
 
 ---
