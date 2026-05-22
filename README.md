@@ -15,14 +15,17 @@ related to the frequency of waste-related reports across districts.
 ```bash
 zueriwieneu_spatial_analysis
 ├── data/
-│   ├── raw/                   # Original downloaded datasets
-│   └── processed/             # Cleaned and preprocessed data
+│   ├── raw/                        # Original downloaded datasets
+│   └── processed/                  # Cleaned and preprocessed data
 ├── notebooks/
-│   ├── src                    # Costum python modules (.py scripts)
-│   ├── data_cleaning.ipynb    # Data preprocessing
-│   └── spatial_analysis.ipynb # Main analysis
-├── outputs/                   # Generated maps and figures
-├── environment.yml            # Required phython packages
+│   ├── src                         # Costum python modules (.py scripts)
+│       ├── bar_charts.py           
+│       ├── choropleth_maps.py
+│       └── point_distribution.py 
+│   ├── data_cleaning.ipynb         # Data preprocessing
+│   └── spatial_analysis.ipynb      # Main analysis
+├── outputs/                        # Generated maps and figures
+├── environment.yml                 # Required phython packages
 └── README.md
 ```
 
