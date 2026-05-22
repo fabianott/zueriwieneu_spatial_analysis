@@ -38,9 +38,13 @@ def plot_point_distribution(
     
     fig, ax = plt.subplots(figsize = figsize)
 
+    # District polygons as background
     district_gdf.plot(ax = ax, color = "whitesmoke", linewidth = 0.5, zorder = 1)
+    # Plot points on top
     points_gdf.plot(ax = ax, color = color, markersize = markersize, alpha = alpha, zorder = 2)
+    # District boundaries on top of points for visual clarity
     district_gdf.boundary.plot(ax = ax, color = "black", linewidth = 0.5, zorder = 3)
+    # Lake on top to mask water areas
     lakes_gdf.plot(ax = ax, color = "skyblue", zorder = 4)
 
     ax.axis("off")

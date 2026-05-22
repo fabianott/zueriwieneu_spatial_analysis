@@ -11,27 +11,35 @@ def plot_bar(
     sort_index = False,  
 ):
     """
-    Plots a 2x5 grid of yearly choropleth maps with a shared colorbar.
+    Plots a bar chart from a pandas Series and saves it to the specified output path.
 
     Parameters
     ----------
-    reports_district_gdf : geopandas.GeoDataFrame
-        Spatially joined reports with district name and year columns.
-    district_gdf : geopandas.GeoDataFrame
-        District polygons with name and area_km2 columns.
-    lakes_gdf : geopandas.GeoDataFrame
-        Lake polygons overlaid on each map.
-    output_path : str
+    series : pandas.Series
+        Data to plot.
+    title : str
+        Plot title.
+    xlabel : str
+        Label for the x-axis.
+    ylabel : str
+        Label for the y-axis.
+    output_path : str or pathlib.Path
         File path to save the plot.
-    years : range, optional
-        Years to include. Default is range(2016, 2026).
+    figsize : tuple, optional
+        Figure size. Default is (10, 5).
+    color : str, optional
+        Bar color. Default is "skyblue".
+    sort_index : bool, optional
+        Whether to sort the Series by index before plotting. Default is False.
     """
 
     fig, ax = plt.subplots(figsize=figsize)
     
+    # Sort by index for time-based series (e.g. years)
     if sort_index:
         series = series.sort_index()
     
+    # Plot as bar chart
     series.plot(kind = "bar", ax = ax, color = color)
     
     ax.set_title(title, fontsize = 15)

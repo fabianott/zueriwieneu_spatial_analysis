@@ -45,7 +45,7 @@ def plot_choropleth(
         District polygons with count and density columns.
     """
 
-    # Optinal Filter
+   # Optional: filter points before aggregation (e.g. only waste reports)
     gdf = points_gdf.copy()
     if filter_column and filter_value:
         gdf = gdf[gdf[filter_column] == filter_value]
@@ -54,12 +54,15 @@ def plot_choropleth(
     joined = gpd.sjoin(gdf, district_gdf, how = "inner", predicate = "within") # points not being in a polygone are discarded
     counts = joined.groupby("name").size().reset_index(name="count") # reset.index makes normal df and names column
 
-    # 3. Merge and Normalization
-    result = district_gdf.merge(counts, on = "name", how = "left") # points with no value are assigned with NaN
+    # Merge counts back to district polygons
+    # how="left" keeps districts with zero points (filled with NaN → 0)
+    result = district_gdf.merge(counts, on = "name", how = "left") 
     result["count"] = result["count"].fillna(0)
+
+    # Normalize by area to get density (reports per km²)
     result["density"] = result["count"] / result["area_km2"]
 
-    # 4. Plot
+    # Plot choropleth map
     fig, ax = plt.subplots(figsize=figsize)
 
     result.plot(
@@ -72,6 +75,7 @@ def plot_choropleth(
         ax = ax,
     )
 
+    # Overlay lake on top to mask water areas
     lakes_gdf.plot(ax = ax, color = "skyblue", zorder = 2)
     ax.set_title(title, fontsize = 15)
     ax.axis("off")
