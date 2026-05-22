@@ -6,7 +6,7 @@ provided by Open Data Zürich, which contains all recorded reports of damage
 to the city's urban infrastructure. The study specifically focuses on 
 identifying and evaluating spatial and temporal patterns within these reports, 
 and investigates whether the spatial distribution of waste containers is 
-related to the frequency of waste-related reports across districts. 
+related to the frequency of waste-related reports across districts and investigates whether the spatial distribution of waste containers and urban activity intensity (proxied by gastronomy establishments) are related to the frequency of waste-related reports across districts.
 
 ---
 
