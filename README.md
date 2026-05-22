@@ -13,15 +13,16 @@ related to the frequency of waste-related reports across districts.
 ## Project Structure
 
 ```bash
+zueriwieneu_spatial_analysis
 ├── data/
 │   ├── raw/                   # Original downloaded datasets
 │   └── processed/             # Cleaned and preprocessed data
 ├── notebooks/
-│   ├── src                    # Functions for visualisations
+│   ├── src                    # Costum python modules (.py scripts)
 │   ├── data_cleaning.ipynb    # Data preprocessing
 │   └── spatial_analysis.ipynb # Main analysis
 ├── outputs/                   # Generated maps and figures
-├── environment.yml
+├── environment.yml            # Required phython packages
 └── README.md
 ```
 
