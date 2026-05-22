@@ -8,12 +8,42 @@ def plot_choropleth(
     title,             
     legend_label,      
     output_path,       # e.g. "../outputs/waste_choropleth.png"
-    cmap="Reds",
+    cmap = "Reds",
     figsize=(7, 6),
-    filter_column=None,   
-    filter_value=None
+    filter_column = None,   
+    filter_value = None
 ):
-    """Aggregates points to district density and plots a choropleth map. Returns the aggregated GeoDataFrame."""
+    """
+    Aggregates point data to district level and plots a choropleth map.
+
+    Parameters
+    ----------
+    points_gdf : geopandas.GeoDataFrame
+        Point layer to aggregate.
+    district_gdf : geopandas.GeoDataFrame
+        District polygons with name and area_km2 columns.
+    lakes_gdf : geopandas.GeoDataFrame
+        Lake polygons overlaid on the map.
+    title : str
+        Plot title.
+    legend_label : str
+        Label for the colorbar.
+    output_path : str
+        File path to save the plot.
+    cmap : str, optional
+        Matplotlib colormap. Default is "Reds".
+    figsize : tuple, optional
+        Figure size. Default is (7, 6).
+    filter_column : str, optional
+        Column name to filter points_gdf before aggregation.
+    filter_value : str, optional
+        Value to filter on in filter_column.
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        District polygons with count and density columns.
+    """
 
     # Optinal Filter
     gdf = points_gdf.copy()
@@ -21,11 +51,11 @@ def plot_choropleth(
         gdf = gdf[gdf[filter_column] == filter_value]
    
     # Spatial Join and Aggregation per district
-    joined = gpd.sjoin(gdf, district_gdf, how="inner", predicate="within") # points not being in a polygone are discarded
+    joined = gpd.sjoin(gdf, district_gdf, how = "inner", predicate = "within") # points not being in a polygone are discarded
     counts = joined.groupby("name").size().reset_index(name="count") # reset.index makes normal df and names column
 
     # 3. Merge and Normalization
-    result = district_gdf.merge(counts, on="name", how="left") # points with no value are assigned with NaN
+    result = district_gdf.merge(counts, on = "name", how = "left") # points with no value are assigned with NaN
     result["count"] = result["count"].fillna(0)
     result["density"] = result["count"] / result["area_km2"]
 
@@ -33,23 +63,21 @@ def plot_choropleth(
     fig, ax = plt.subplots(figsize=figsize)
 
     result.plot(
-        column="density",
-        cmap=cmap,
-        legend=True,
-        legend_kwds={"label": legend_label},
-        edgecolor="black",
-        linewidth=0.5,
-        vmin=vmin,
-        vmax=vmax,
-        ax=ax,
+        column = "density",
+        cmap = cmap,
+        legend = True,
+        legend_kwds = {"label": legend_label},
+        edgecolor = "black",
+        linewidth = 0.5,
+        ax = ax,
     )
 
-    lakes_gdf.plot(ax=ax, color="skyblue", zorder=2)
-    ax.set_title(title, fontsize=15)
+    lakes_gdf.plot(ax = ax, color = "skyblue", zorder = 2)
+    ax.set_title(title, fontsize = 15)
     ax.axis("off")
 
     plt.tight_layout()
-    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.savefig(output_path, dpi = 300, bbox_inches = "tight")
     plt.show()
 
     return result  # later used for further analysis
